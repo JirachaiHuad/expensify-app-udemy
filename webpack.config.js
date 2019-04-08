@@ -12,7 +12,7 @@ module.exports = (env) => {  // [node function]
   return {
     entry: './src/app.js', // relative path for entry point
     output: {
-      path: path.join(__dirname, 'public'), // absolute path on the computer
+      path: path.join(__dirname, 'public', 'dist'), // absolute path on the computer
       filename: 'bundle.js'  // any name technically
     },
     module: {
@@ -45,7 +45,8 @@ module.exports = (env) => {  // [node function]
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),
-      historyApiFallback: true
+      historyApiFallback: true,
+      publicPath: '/dist/'
     }
   }
 }
